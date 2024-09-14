@@ -63,9 +63,9 @@ public class SetHexCode implements InteractionCreateListener {
 
             roleBuilder.setColor(color);
             roleBuilder.setName(userID);
-            Role role = roleBuilder.create().resultNow();
+            Role role = roleBuilder.create().join();
 
-            interaction.getUser().addRole(role);
+            interaction.getUser().addRole(role).join();
         } else {
             Role role = server.getRolesByName(userID).getFirst();
 
